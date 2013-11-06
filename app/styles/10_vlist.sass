@@ -4,17 +4,23 @@
   z-index: 5
 #vlist
   -webkit-perspective: 500px
-  -webkit-perspective-origin: 50% 0px
+  perspective: 500px
+  -webkit-perspective-origin: 50% 0
+  perspective-origin: 50% 0
   padding-top: 150px
   .video.list
     .video.wrapper:nth-of-type(4n+1)
       -webkit-transform: rotateX(40deg) rotateY(10deg)
+      transform: rotateX(40deg) rotateY(10deg)
     .video.wrapper:nth-of-type(4n+2)
       -webkit-transform: rotateX(40deg) rotateY(5deg)
+      transform: rotateX(40deg) rotateY(5deg)
     .video.wrapper:nth-of-type(4n+3)
       -webkit-transform: rotateX(40deg) rotateY(-5deg)
+      transform: rotateX(40deg) rotateY(-5deg)
     .video.wrapper:nth-of-type(4n)
       -webkit-transform: rotateX(40deg) rotateY(-10deg)
+      transform: rotateX(40deg) rotateY(-10deg)
     .video.wrapper
       box-shadow: 0 0 5px 0 rgba(255,255,128,0.5), 0 5px 25px 5px rgba(0,0,0,0.8)
       background: #999
