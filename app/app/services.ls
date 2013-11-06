@@ -23,11 +23,11 @@ angular.module 'app.services' []
 .service 'DanmakuPaper': ->
   has-net = false
   net-handle = null
-  player = $ \#video-wrapper
-  {left: x, top: y} = player.offset!
-  paper = Raphael x, y, player.width!, player.height! - 30
+  area = $ \#standing-area
+  {left: x, top: y} = area.offset!
+  paper = Raphael x, y, area.width!, area.height! - 30
   poptext: (text, color, size, ms) ->
-    paper.text player.width!, Math.floor(Math.random!*300), text
+    paper.text area.width!, Math.floor(Math.random!*300), text
       .attr {'font-size': size, 'fill': color, 'text-shadow': '0 0 10px rgba(255,255,255,0.5)'}
       .animate {x: -paper.width}, ms
   throwEgg: (type, mx, my, ex, ey, sy) ->
@@ -40,7 +40,7 @@ angular.module 'app.services' []
       ..animate left: ex - 50, top: ey - 50 + sy if has-net
       ..fadeOut!
   protect: (type) ->
-    wrapper = $ \#video-wrapper
+    wrapper = $ \#standing-area
     {top:y, left: x} = wrapper.offset!
     [w, h] = [wrapper.width!, wrapper.height!]
     egg = $ \<div></div>

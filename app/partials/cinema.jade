@@ -59,10 +59,10 @@
       .menu
         .item(ng-repeat="(channel, status) in channels",ng-show="status.live")
           a(ng-href="/cinema/{{channel}}/live") {{ channelNames[channel] }}
-  // #notlive(ng-hide="channels[sitting].live")
-  //   h1 即將上映
-  #egg-realm(ng-controller="Danmaku")
-    #video-wrapper
+  #standing-area(ng-controller="Danmaku")
+    #notlive(ng-hide="channels[sitting].live")
+      h1 即將上映
+    #video-wrapper(ng-show="channels[sitting].live")
       video#cinema-player(width="650px",height="400px",preload="auto",mediaelement,src="{{vsrc}}")
       #eggninja
         #crosshair
@@ -77,14 +77,14 @@
         .ui.input.mini
           input.fire(type="text",placeholder="輸入彈幕",ng-model="newComment")
         button.ui.small.button.blue.fire(ng-disabled="!newComment",type="submit") 發射!
-  #action-stats
-  .archive(ng-show="loaded")
-    #wav-root
-      .wav-group(ng-repeat="waveform in waveforms")
-        ng-waveform(ng-model="waveform")
-    #avatar-tooltip.ui.label.pointing.below
-      img
-      .name
+    #action-stats
+    .archive(ng-show="loaded")
+      #wav-root
+        .wav-group(ng-repeat="waveform in waveforms")
+          ng-waveform(ng-model="waveform")
+      #avatar-tooltip.ui.label.pointing.below
+        img
+        .name
   .panel.detail(ng-show="loaded")
     .ui.label.ribbon.red 詳細資料
     .ib
